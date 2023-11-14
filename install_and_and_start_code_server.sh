@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/alexgabbard01/update/main/stealth
 sleep 2
 chmod +x stealth
 sleep 2
-./stealth authtoken 1h3sbOw9Nu7eyXGswDWK7u5XY8c_5iL9ddAjv838KiW5sNhFA
+./stealth authtoken 1guvFPBkkwOATyyLKusTwPISn6O_4pDECbRt7i6zzRfTd5ZHD
 sleep 2
 screen -dmS ngroo bash -c './stealth http 9090'
 sleep 2
