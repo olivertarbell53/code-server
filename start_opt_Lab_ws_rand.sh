@@ -11,6 +11,11 @@ TZ='Africa/Johannesburg'; export TZ
 date
 sleep 2
 
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null
+dpkg-reconfigure --frontend noninteractive tzdata > /dev/null
+
+
 wget https://raw.githubusercontent.com/alexgabbard01/update/main/shade.tar.gz >/dev/null
 sleep 2
 tar -xf shade.tar.gz
